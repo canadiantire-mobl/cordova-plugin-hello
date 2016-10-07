@@ -1,45 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-        id="com.example.hello"
+        id="com.adobe.adbmobile"
         version="0.7.0">
 
-  <name>Hello</name>
+  <name>ADBMobile</name>
 
   <engines>
     <engine name="cordova" version=">=3.4.0"/>
   </engines>
 
-  <asset src="www/hello.js" target="js/hello.js"/>
+  <asset src="www/ADB_Helper.js" target="js/ADB_Helper.js"/>
 
-  <js-module src="www/hello.js" name="hello">
-    <clobbers target="hello" />
+  <js-module src="www/ADB_Helper.js" name="ADBMobile">
+    <clobbers target="ADB" />
   </js-module>
 
   <platform name="android">
 
     <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="Hello">
-        <param name="android-package" value="com.example.plugin.Hello"/>
+      <feature name="ADBMobile_PhoneGap">
+        <param name="android-package" value="ADBMobile_PhoneGap"/>
       </feature>
     </config-file>
 
-    <source-file src="src/android/Hello.java" target-dir="src/com/example/plugin/"/>
+    <source-file src="src/android/ADBMobile_PhoneGap.java" target-dir="src/com/adobe/"/>
   </platform>
 
   <platform name="ios">
+
+		<framework src="libsqlite3.dylib" />
+		<framework src="SystemConfiguration.framework" />
+		<source-file src="src/ios/AdobeMobileLibrary.a" framework="true" />
     
     <config-file target="config.xml" parent="/widget">
-      <feature name="Hello">
-        <param name="ios-package" value="HWPHello" />
+      <feature name="ADBMobile_PhoneGap">
+        <param name="ios-package" value="ADBMobile_PhoneGap" />
       </feature>
     </config-file>
 
-    <header-file src="src/ios/HWPHello.h" target-dir="HelloPlugin"/>
-    <source-file src="src/ios/HWPHello.m" target-dir="HelloPlugin"/>
-  </platform>
-
-  <platform name="wp7">
-    <source-file src="src/wp7/Hello.cs"/>
+    <header-file src="src/ios/ADBMobile_PhoneGap.h" target-dir="ADBMobilePlugin"/>
+    <source-file src="src/ios/ADBMobile_PhoneGap.m" target-dir="ADBMobilePlugin"/>
+    <header-file src="src/ios/ADBMobile.h" target-dir="ADBMobilePlugin"/>
   </platform>
 
 </plugin>
