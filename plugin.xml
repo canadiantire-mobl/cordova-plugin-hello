@@ -19,11 +19,16 @@
 
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="ADBMobile_PhoneGap">
-        <param name="android-package" value="ADBMobile_PhoneGap"/>
+        <param name="android-package" value="com.adobe.ADBMobile_PhoneGap"/>
       </feature>
     </config-file>
 
     <source-file src="src/android/ADBMobile_PhoneGap.java" target-dir="src/com/adobe/"/>
+		<resource-file src="src/android/adobeMobileLibrary-4.13.0.jar" target="libs/adobeMobileLibrary-4.13.0.jar" />
+
+		<uses-permission android:name="android.permission.INTERNET" />
+		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+		
   </platform>
 
   <platform name="ios">
@@ -41,6 +46,7 @@
     <header-file src="src/ios/ADBMobile_PhoneGap.h" target-dir="ADBMobilePlugin"/>
     <source-file src="src/ios/ADBMobile_PhoneGap.m" target-dir="ADBMobilePlugin"/>
     <header-file src="src/ios/ADBMobile.h" target-dir="ADBMobilePlugin"/>
+
   </platform>
 
 </plugin>
