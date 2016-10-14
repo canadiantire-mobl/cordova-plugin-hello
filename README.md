@@ -12,9 +12,9 @@ like below:
 
 `<hook src="hooks/adobe-mobile-config-copy.js" type="before_compile" />`
 
-The hook will use a file from the below paths, depending on your build parameters.
-* cordova/ADBMobileConfig.debug.json
-* cordova/ADBMobileConfig.release.json
+The hook will look for one of the files below in the root of your cordova project, depending on your build parameters.
+* ADBMobileConfig.debug.json
+* ADBMobileConfig.release.json
 
 If you ran `cordova build android --release`, the hook would look for the release.json file,
 otherwise the debug version is used.
